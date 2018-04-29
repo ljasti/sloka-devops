@@ -25,7 +25,7 @@ pipeline {
 //            }
 //        }
 
-        stage('Spinning up the container') {
+        stage('Building & Spinning up the container') {
             steps {
                 sh 'sudo docker run -d -it --name sloka -p 80:80 -v /var/lib/jenkins/workspace/sloka-index:/var/www/html sloka'
             }
