@@ -20,14 +20,14 @@ pipeline {
             steps {
                 sh "pwd"
                 echo 'Building....'
-                sh 'docker rmi -f sloka'
-                sh 'docker build -t sloka .'
+                sh 'sudo docker rmi -f sloka'
+                sh 'sudo docker build -t sloka .'
             }
         }
 
         stage('Spinning up the container') {
             steps {
-                sh 'docker run -d -it --name sloka -p 80:80 -v /var/lib/jenkins/workspace/test:/var/www/html sloka'
+                sh 'sudo docker run -d -it --name sloka -p 80:80 -v /var/lib/jenkins/workspace/test:/var/www/html sloka'
             }
         }
 
