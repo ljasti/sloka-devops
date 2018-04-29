@@ -1,7 +1,14 @@
 pipeline {
 
     agent any
-	
+	stages {
+       stage('Git checkout') {
+            steps {
+                echo 'Fetching code from Git...'
+                git url: 'https://github.com/ljasti/sloka-devops.git', branch: 'master'
+                checkout scm
+            }
+        }
     stages {
        stage('Killing existing container if running') {
             steps {
