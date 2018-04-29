@@ -1,16 +1,16 @@
 pipeline {
 
     agent any
-	stages {
-       stage('Git checkout') {
+    stages {
+        stage('Git checkout') {
             steps {
                 echo 'Fetching code from Git...'
                 git url: 'https://github.com/ljasti/sloka-devops.git', branch: 'master'
                 checkout scm
             }
         }
-    stages {
-       stage('Killing existing container if running') {
+    
+        stage('Killing existing container if running') {
             steps {
                 echo 'kill docker container if exists'
                 sh 'for container_id in $(sudo docker ps  --filter="name=sloka" -q);do sudo docker stop $container_id && sudo docker rm $container_id;done'
