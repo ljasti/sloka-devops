@@ -27,7 +27,7 @@ pipeline {
 
         stage('Spinning up the container') {
             steps {
-                sh 'docker run -d -it --name sloka -p 80:80 -v /var/lib/jenkins/workspace/testsloka1:/var/www/html sloka'
+                sh 'docker run -d -it --name sloka -p 80:80 -v /var/lib/jenkins/workspace/test:/var/www/html sloka'
             }
         }
 
