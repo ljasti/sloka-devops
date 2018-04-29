@@ -20,8 +20,8 @@ pipeline {
             steps {
                 sh "pwd"
                 echo 'Building....'
-                sh 'sudo docker rmi -f sloka'
-                sh 'sudo docker build -t sloka .'
+//                sh 'sudo docker rmi -f sloka'
+//                sh 'sudo docker build -t sloka .'
             }
         }
 
